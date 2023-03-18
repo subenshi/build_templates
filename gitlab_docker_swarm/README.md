@@ -1,1 +1,1 @@
-Demo purposes only
+Gitlab's minimun deployment to docker swarm
