@@ -1,0 +1,9 @@
+image: docker:latest  # this sets default image for jobs
+services:
+  - docker:dind
+
+REPLACE_BY_BY_THE_NAME_build:
+  stage: build
+  script:
+    - docker build -t {{project.name}}_{{service.name}} -f Dockerfile --tag latest .
+    - docker stack deploy --compose-file docker-compose.yml {{project.name}}_{{service.name}}
